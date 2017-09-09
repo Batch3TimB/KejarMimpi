@@ -55,6 +55,7 @@ func GetUsersById(id int) (v *Users, err error) {
 	return nil, err
 }
 
+
 // plain password from input user change into hashedpassword then save to db
 func CreatePasswordHash(plainPassword string) (hashedPassword string) {
 	passwordHashInBytes, err := bcrypt.GenerateFromPassword([]byte(plainPassword), 10)

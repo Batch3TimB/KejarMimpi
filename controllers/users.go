@@ -3,11 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"strconv"
-	"strings"
 
-	"github.com/astaxie/beego"
 	"github.com/kejarmimpi/models"
+	"github.com/kejarmimpi/models"
+
 )
 
 // UsersController operations for Users
@@ -127,7 +126,6 @@ func (c *UsersController) GetAll() {
 
 	l, err := models.GetAllUsers(query, fields, sortby, order, offset, limit)
 	
-
 	success := true
 	if err != nil {
 		success = false
@@ -141,6 +139,7 @@ func (c *UsersController) GetAll() {
 	}
 
 	c.Data["json"] = &response
+
 	c.ServeJSON()
 }
 

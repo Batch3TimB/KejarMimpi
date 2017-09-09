@@ -6,7 +6,6 @@ import (
 )
 
 func init() {
-
 	beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:ArticlesController"] = append(beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:ArticlesController"],
 		beego.ControllerComments{
 			Method: "Post",
@@ -126,7 +125,6 @@ func init() {
 			AllowHTTPMethods: []string{"delete"},
 			MethodParams: param.Make(),
 			Params: nil})
-
 	beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:UsersController"] = append(beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:UsersController"],
 		beego.ControllerComments{
 			Method: "Post",
