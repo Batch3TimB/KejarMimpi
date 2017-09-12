@@ -1,4 +1,4 @@
-phspackage models
+package models
 
 import (
 	"errors"

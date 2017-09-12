@@ -4,8 +4,6 @@ import:
   version: ^1.9.0
   subpackages:
   - context/param
+  - migration
   - orm
 - package: github.com/lib/pq
-- package: golang.org/x/crypto
-  subpackages:
-  - bcrypt
