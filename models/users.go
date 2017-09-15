@@ -44,6 +44,26 @@ func AddUsers(m *Users) (id int64, err error) {
 	return
 }
 
+
+// plain password from input user change into hashedpassword then save to db
+func CreatePasswordHash(plainPassword string) (hashedPassword string) {
+	passwordHashInBytes, err := bcrypt.GenerateFromPassword([]byte(plainPassword), 10)
+	if err != nil {
+		panic(err)
+	}
+	hashedPassword = string(passwordHashInBytes)
+	return
+}
+
+// validation password for authentication
+func ValidatePassword(hashedPassword, plainPassword string) (isValid bool) {
+	hashedPasswordInBytes := []byte(hashedPassword)
+	plainPasswordInBytes := []byte(plainPassword)
+	err := bcrypt.CompareHashAndPassword(hashedPasswordInBytes, plainPasswordInBytes)
+	isValid = err == nil
+	return
+}
+
 // GetUsersById retrieves Users by Id. Returns error if
 // Id doesn't exist
 func GetUsersById(id int) (v *Users, err error) {

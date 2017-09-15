@@ -155,6 +155,7 @@ func (c *UsersController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v := models.Users{Id: id}
+	// TODO: add method to hashing the password
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateUsersById(&v); err == nil {
 			c.Data["json"] = "OK"

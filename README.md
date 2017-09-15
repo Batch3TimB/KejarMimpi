@@ -53,4 +53,3 @@ open
 
 * Binar Academy
 * Mentors backend: mas Prima, mas Gean, mas Andi
-

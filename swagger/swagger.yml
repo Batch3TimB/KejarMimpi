@@ -129,6 +129,9 @@ definitions:
     properties:
       AvatarUrl:
         type: string
+      CreatedAt:
+        type: string
+        format: string
       Dream:
         type: string
       Email:
@@ -146,6 +149,11 @@ definitions:
         type: string
       Profession:
         type: string
+      Token:
+        type: string
+      UpdatedAt:
+        type: string
+        format: string
       WebsiteUrl:
         type: string
 tags:

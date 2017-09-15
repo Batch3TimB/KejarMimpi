@@ -191,6 +191,13 @@
             "properties": {
                 "AvatarUrl": {
                     "type": "string"
+<<<<<<< HEAD
+=======
+                },
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "string"
+>>>>>>> add created and updated field
                 },
                 "Dream": {
                     "type": "string"
@@ -216,6 +223,13 @@
                 },
                 "Profession": {
                     "type": "string"
+                },
+                "Token": {
+                    "type": "string"
+                },
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "string"
                 },
                 "WebsiteUrl": {
                     "type": "string"
