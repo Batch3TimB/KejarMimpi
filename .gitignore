@@ -2,5 +2,3 @@ vendor
 routers/commentsRouter_controllers.go
 *.exe
 lastupdate.tmp
-swagger/
-.vscode/
