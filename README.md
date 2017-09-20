@@ -14,6 +14,27 @@ then
 ```
 bee run -downdoc=true -gendoc=true
 ```
+open your browser 
+```
+http://127.0.0.1:8080/swagger/
+```
+without swagger 
+```
+bee run
+```
+open
+ ```
+ http://127.0.0.1:8080/v1/users
+ ```
+ ```
+ http://127.0.0.1:8080/v1/articles
+ ```
+ ```
+ http://127.0.0.1:8080/v1/category
+ ```
+ ```
+ http://127.0.0.1:8080/v1/comments
+ ```
 
 
 ## Built With
