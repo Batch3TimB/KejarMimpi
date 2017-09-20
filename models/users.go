@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/astaxie/beego/orm"
-	"golang.org/x/crypto/bcrypt"
+	"github.com/ikeikeikeike/gopkg/convert"
 )
 
 type Users struct {
@@ -39,6 +39,9 @@ func init() {
 // AddUsers insert a new Users into database and returns
 // last inserted Id on success.
 func AddUsers(m *Users) (id int64, err error) {
+	var (
+		msg string
+	)
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -50,19 +53,17 @@ func CreatePasswordHash(plainPassword string) (hashedPassword string) {
 	passwordHashInBytes, err := bcrypt.GenerateFromPassword([]byte(plainPassword), 10)
 	if err != nil {
 		panic(err)
+	qs := o.QueryTable("users")
+	if qs.Filter("email", m.Email).Exist() {
+		msg = "email was already regsitered"
+		return 0, errors.New(msg)
 	}
-	hashedPassword = string(passwordHashInBytes)
+
+	m.Password = convert.StrTo(m.Password).Md5()
+	id, err = o.Insert(m)
 	return
 }
 
-// validation password for authentication
-func ValidatePassword(hashedPassword, plainPassword string) (isValid bool) {
-	hashedPasswordInBytes := []byte(hashedPassword)
-	plainPasswordInBytes := []byte(plainPassword)
-	err := bcrypt.CompareHashAndPassword(hashedPasswordInBytes, plainPasswordInBytes)
-	isValid = err == nil
-	return
-}
 
 // GetUsersById retrieves Users by Id. Returns error if
 // Id doesn't exist
