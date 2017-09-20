@@ -1,5 +1,5 @@
 hash: 81a8caf2e7a1d27f85b2a585e7820a2c847102cff438088cbadd9082a3a2a2b3
-updated: 2017-09-18T19:47:46.051386152+07:00
+updated: 2017-09-19T21:45:15.026694067+07:00
 imports:
 - name: bitbucket.org/liamstask/goose
   version: 8488cc47d90c8a502b1c41a462a6d9cc8ee0a895
@@ -25,7 +25,7 @@ imports:
   subpackages:
   - yaml
 - name: github.com/lib/pq
-  version: e42267488fe361b9dc034be7a6bffef5b195bceb
+  version: 23da1db4f16d9658a86ae9b717c245fc078f10f1
   subpackages:
   - oid
 - name: github.com/mattn/go-sqlite3
