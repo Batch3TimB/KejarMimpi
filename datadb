@@ -1,0 +1,569 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.4
+-- Dumped by pg_dump version 9.6.5
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: articles; Type: TABLE; Schema: public; Owner: fany
+--
+
+CREATE TABLE articles (
+    id integer NOT NULL,
+    title text NOT NULL,
+    content text NOT NULL,
+    id_user integer NOT NULL,
+    id_category integer NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE articles OWNER TO fany;
+
+--
+-- Name: articles_id_category_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE articles_id_category_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE articles_id_category_seq OWNER TO fany;
+
+--
+-- Name: articles_id_category_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE articles_id_category_seq OWNED BY articles.id_category;
+
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE articles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE articles_id_seq OWNER TO fany;
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE articles_id_seq OWNED BY articles.id;
+
+
+--
+-- Name: articles_id_user_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE articles_id_user_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE articles_id_user_seq OWNER TO fany;
+
+--
+-- Name: articles_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE articles_id_user_seq OWNED BY articles.id_user;
+
+
+--
+-- Name: category; Type: TABLE; Schema: public; Owner: fany
+--
+
+CREATE TABLE category (
+    id integer NOT NULL,
+    category text NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE category OWNER TO fany;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE category_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE category_id_seq OWNER TO fany;
+
+--
+-- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE category_id_seq OWNED BY category.id;
+
+
+--
+-- Name: comments; Type: TABLE; Schema: public; Owner: fany
+--
+
+CREATE TABLE comments (
+    id integer NOT NULL,
+    comments text NOT NULL,
+    id_user integer NOT NULL,
+    id_article integer NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE comments OWNER TO fany;
+
+--
+-- Name: comments_id_article_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE comments_id_article_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE comments_id_article_seq OWNER TO fany;
+
+--
+-- Name: comments_id_article_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE comments_id_article_seq OWNED BY comments.id_article;
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE comments_id_seq OWNER TO fany;
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
+
+
+--
+-- Name: comments_id_user_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE comments_id_user_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE comments_id_user_seq OWNER TO fany;
+
+--
+-- Name: comments_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE comments_id_user_seq OWNED BY comments.id_user;
+
+
+--
+-- Name: goose_db_version; Type: TABLE; Schema: public; Owner: fany
+--
+
+CREATE TABLE goose_db_version (
+    id integer NOT NULL,
+    version_id bigint NOT NULL,
+    is_applied boolean NOT NULL,
+    tstamp timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE goose_db_version OWNER TO fany;
+
+--
+-- Name: goose_db_version_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE goose_db_version_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE goose_db_version_id_seq OWNER TO fany;
+
+--
+-- Name: goose_db_version_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE goose_db_version_id_seq OWNED BY goose_db_version.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: fany
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    name text NOT NULL,
+    profession text NOT NULL,
+    dream text NOT NULL,
+    hobby text NOT NULL,
+    website_url text NOT NULL,
+    phone text,
+    avatar_url text NOT NULL,
+    email text NOT NULL,
+    password text NOT NULL,
+    token text NOT NULL,
+    created_at timestamp without time zone DEFAULT now() NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE users OWNER TO fany;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE users_id_seq OWNER TO fany;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: articles id; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY articles ALTER COLUMN id SET DEFAULT nextval('articles_id_seq'::regclass);
+
+
+--
+-- Name: articles id_user; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY articles ALTER COLUMN id_user SET DEFAULT nextval('articles_id_user_seq'::regclass);
+
+
+--
+-- Name: articles id_category; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY articles ALTER COLUMN id_category SET DEFAULT nextval('articles_id_category_seq'::regclass);
+
+
+--
+-- Name: category id; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY category ALTER COLUMN id SET DEFAULT nextval('category_id_seq'::regclass);
+
+
+--
+-- Name: comments id; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
+
+
+--
+-- Name: comments id_user; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY comments ALTER COLUMN id_user SET DEFAULT nextval('comments_id_user_seq'::regclass);
+
+
+--
+-- Name: comments id_article; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY comments ALTER COLUMN id_article SET DEFAULT nextval('comments_id_article_seq'::regclass);
+
+
+--
+-- Name: goose_db_version id; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY goose_db_version ALTER COLUMN id SET DEFAULT nextval('goose_db_version_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: articles; Type: TABLE DATA; Schema: public; Owner: fany
+--
+
+COPY articles (id, title, content, id_user, id_category, created_at, updated_at) FROM stdin;
+1	isi title	ini isi artikel	1	1	2017-09-19 09:36:03.339165	2017-09-19 09:36:03.339167
+\.
+
+
+--
+-- Name: articles_id_category_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('articles_id_category_seq', 1, false);
+
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('articles_id_seq', 1, true);
+
+
+--
+-- Name: articles_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('articles_id_user_seq', 1, false);
+
+
+--
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: fany
+--
+
+COPY category (id, category, created_at, updated_at) FROM stdin;
+1	fashion	2017-09-19 09:35:04.900374	2017-09-19 09:35:04.900376
+\.
+
+
+--
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('category_id_seq', 1, true);
+
+
+--
+-- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: fany
+--
+
+COPY comments (id, comments, id_user, id_article, created_at, updated_at) FROM stdin;
+1	oke banget	1	1	2017-09-19 09:37:45.169915	2017-09-19 09:37:45.169918
+2	oke banget	1	1	2017-09-19 09:37:51.122211	2017-09-19 09:37:51.122213
+\.
+
+
+--
+-- Name: comments_id_article_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('comments_id_article_seq', 1, false);
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('comments_id_seq', 2, true);
+
+
+--
+-- Name: comments_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('comments_id_user_seq', 1, false);
+
+
+--
+-- Data for Name: goose_db_version; Type: TABLE DATA; Schema: public; Owner: fany
+--
+
+COPY goose_db_version (id, version_id, is_applied, tstamp) FROM stdin;
+1	0	t	2017-09-18 15:28:02.846389
+2	20170918151713	t	2017-09-18 15:28:02.859089
+3	20170918151713	f	2017-09-18 15:43:12.197198
+4	20170918151713	t	2017-09-18 15:44:35.833701
+5	20170918153538	t	2017-09-18 15:44:35.844066
+6	20170918153604	t	2017-09-18 15:44:35.852064
+7	20170918153645	t	2017-09-18 15:44:35.86215
+8	20170918153645	f	2017-09-18 15:44:47.17722
+9	20170918153645	t	2017-09-18 15:45:32.402059
+\.
+
+
+--
+-- Name: goose_db_version_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('goose_db_version_id_seq', 9, true);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: fany
+--
+
+COPY users (id, name, profession, dream, hobby, website_url, phone, avatar_url, email, password, token, created_at, updated_at) FROM stdin;
+1	admin	penyanyi		menyanyi	google.com				$2a$10$66Z8eYgJ0SpQSsYYWpyhO.KztevrqaIhsBKqvzKljQDEIsj6TsaAi		2017-09-18 16:16:49.083809	2017-09-18 16:16:49.083811
+2	admin	penyanyi		menyanyi	google.com				$2a$10$w7z7d5aQbRoUgxkOexfhU.UjpyXEx92foOqbKeXf7/XOn/r36oOFq		2017-09-18 19:59:33.842083	2017-09-18 19:59:33.842085
+3	admin3	penyanyi		menyanyi	google.com			admin3@gmail.com	32cacb2f994f6b42183a1300d9a3e8d6		2017-09-20 14:50:30.180027	2017-09-20 14:50:30.180028
+4	admin4	penyanyi		menyanyi	google.com			admin3@gmail.com	32cacb2f994f6b42183a1300d9a3e8d6		2017-09-20 14:50:41.3132	2017-09-20 14:50:41.313201
+5	admin4	penyanyi		menyanyi	google.com			admin4@gmail.com	32cacb2f994f6b42183a1300d9a3e8d6		2017-09-20 14:51:29.214609	2017-09-20 14:51:29.214615
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+--
+
+SELECT pg_catalog.setval('users_id_seq', 5, true);
+
+
+--
+-- Name: articles articles_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY articles
+    ADD CONSTRAINT articles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY category
+    ADD CONSTRAINT category_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: goose_db_version goose_db_version_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY goose_db_version
+    ADD CONSTRAINT goose_db_version_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: articles articles_id_category_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY articles
+    ADD CONSTRAINT articles_id_category_fkey FOREIGN KEY (id_category) REFERENCES category(id);
+
+
+--
+-- Name: articles articles_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY articles
+    ADD CONSTRAINT articles_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id);
+
+
+--
+-- Name: comments comments_id_article_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT comments_id_article_fkey FOREIGN KEY (id_article) REFERENCES articles(id);
+
+
+--
+-- Name: comments comments_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT comments_id_user_fkey FOREIGN KEY (id_user) REFERENCES users(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
