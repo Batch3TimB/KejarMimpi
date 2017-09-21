@@ -2,6 +2,12 @@
 
 Provided API to Kejar Mimpi App
 
+## Dependency
+* Go Language (Golang)
+* Setting GOPATH
+* Beego Framework Golang
+* Postgresql
+
 ### Installing
 
 run this command:
