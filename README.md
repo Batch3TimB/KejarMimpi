@@ -15,6 +15,7 @@ Migration with Goose
 ### Running in local
 * Clone this repo
 * Replace the database connection code with your database connection in the `main.go` file
+
 `orm.RegisterDataBase("default", "postgres", "user=postgres password=yourpassword host=127.0.0.1 dbname=yourdb")`
 
 run
