@@ -5,8 +5,8 @@ Provided API to Kejar Mimpi App
 ### Dependency
 * Go Language (Golang)
 * Setting GOPATH
-* Beego Framework Golang
-* Postgresql
+* [Beego](https://beego.me/docs/intro/) - The web frameworks used
+* [Glide](https://glide.sh/) - Dependency Management
 
 Migration with Goose 
 
@@ -30,13 +30,6 @@ testing local ==> documentation video
 ```
 https://www.youtube.com/watch?v=TCcldd7AnzY
 ```
-
-
-## Built With
-
-* [Beego](https://beego.me/docs/intro/) - The web frameworks used
-* [Glide](https://glide.sh/) - Dependency Management
-
 
 ## Authors
 
