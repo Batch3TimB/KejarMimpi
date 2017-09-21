@@ -2,11 +2,14 @@
 
 Provided API to Kejar Mimpi App
 
-## Dependency
+### Dependency
 * Go Language (Golang)
 * Setting GOPATH
 * Beego Framework Golang
 * Postgresql
+
+Migration with Goose 
+`https://bitbucket.org/liamstask/goose/`
 
 ### Running in local
 * Clone this repo
