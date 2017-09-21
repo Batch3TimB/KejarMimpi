@@ -18,6 +18,10 @@ open your browser
 ```
 http://127.0.0.1:8080/swagger/
 ```
+testing local ==> video
+```
+https://www.youtube.com/watch?v=TCcldd7AnzY
+```
 
 
 ## Built With
