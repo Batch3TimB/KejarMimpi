@@ -1,6 +1,6 @@
 development:
   driver: postgres
-  open: user=postgres dbname=kejarmimpi3 sslmode=disable password=091289
+  open: user=postgres dbname=dbmu sslmode=disable password=passwordmu
 
 production:
     driver: postgres
