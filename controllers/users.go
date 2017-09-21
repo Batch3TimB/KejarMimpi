@@ -3,10 +3,11 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
+	"strconv"
+	"strings"
 
+	"github.com/astaxie/beego"
 	"github.com/kejarmimpi/models"
-	"github.com/kejarmimpi/models"
-
 )
 
 // UsersController operations for Users

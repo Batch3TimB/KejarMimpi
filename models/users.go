@@ -64,6 +64,15 @@ func CreatePasswordHash(plainPassword string) (hashedPassword string) {
 	return
 }
 
+// read Query User/profile by known User object:
+
+func (m *Users) Read(fields ...string) error {
+	if err := orm.NewOrm().Read(m, fields...); err != nil {
+		return err
+	}
+	return nil
+}
+
 
 // GetUsersById retrieves Users by Id. Returns error if
 // Id doesn't exist
@@ -165,9 +174,16 @@ func GetAllUsers(query map[string]string, fields []string, sortby []string, orde
 	return nil, err
 }
 
+func (m *Users) Update(fields ...string) error {
+	if _, err := orm.NewOrm().Update(m, fields...); err != nil {
+		return err
+	}
+	return nil
+}
+
 // UpdateUsers updates Users by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateUsersById(m *Users) (err error) {
+func UpdateUsersById(m *Users) (err error)  {
 	o := orm.NewOrm()
 	v := Users{Id: m.Id}
 	// ascertain id exists in the database

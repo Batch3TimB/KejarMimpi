@@ -16,6 +16,7 @@ func init() {
 
 	beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:ArticlesController"] = append(beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:ArticlesController"],
 		beego.ControllerComments{
+<<<<<<< HEAD
 			Method: "GetAll",
 			Router: `/`,
 			AllowHTTPMethods: []string{"get"},
@@ -49,6 +50,9 @@ func init() {
 	beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:CategoryController"] = append(beego.GlobalControllerRouter["github.com/kejarmimpi/controllers:CategoryController"],
 		beego.ControllerComments{
 			Method: "Post",
+=======
+			Method: "Login",
+>>>>>>> add auth for login
 			Router: `/`,
 			AllowHTTPMethods: []string{"post"},
 			MethodParams: param.Make(),

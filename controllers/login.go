@@ -2,22 +2,21 @@ package controllers
 
 import (
 	"fmt"
-	"encoding/json"
 
 	"github.com/astaxie/beego"
-	"github.com/kejarmimpi/models"
-	"github.com/astaxie/beego/orm"
+	"github.com/kejarmimpi/lib"
 )
 
 // LoginController operations for authentication login user
 type LoginController struct {
-	beego.Controller
+	AuthController
 }
 
 // URLMapping ...
 func (c *LoginController) URLMapping() {
-	c.Mapping("LoginHandler", c.LoginHandler)
+	c.Mapping("Login", c.Login)
 }
+
 
 // Post ...
 // @Title Post
@@ -25,62 +24,26 @@ func (c *LoginController) URLMapping() {
 // @Param	body		body 	models.Users	true		"body for Users content"
 // @Failure 403 body is empty
 // @router / [post]
-func (c *LoginController) LoginHandler() {
+func (c *LoginController) Login() {
+	flash := beego.NewFlash()
+	email := c.GetString("email")
 
-	var data models.Users
-    if err := json.Unmarshal(c.Ctx.Input.RequestBody, &data); err != nil {
-        c.Ctx.Output.SetStatus(400)
-        fmt.Println(c.Ctx.Input.RequestBody)
-        c.Ctx.Output.Body([]byte("empty title"))
-        return
-    }
- 
-	res := struct{  
-        Data []*models.Users
-    }{}
+	c.Data["json"] =  c.Ctx.Input.RequestBody
+	
+	fmt.Printf("ini dibawah")
 
-    var cond *orm.Condition
-    cond = orm.NewCondition()
+	password := c.GetString("password")
 
-    cond = cond.And("name", data.Name)
-    cond = cond.And("password", data.Password)
-    lim :=1
-
-    var qs orm.QuerySeter
-    qs = orm.NewOrm().QueryTable("users").SetCond(cond).Limit(lim)
-    _,err := qs.All(&res.Data)
-    if err != nil {
-        c.Ctx.Output.SetStatus(400)
-        c.Ctx.Output.Body([]byte(err.Error()))
-        return
-    }
-
-	 
-
-/*
-	token := jwt.New(jwt.SigningMethodRS256)
-	claims := make(jwt.MapClaims)
-	claims["exp"] = time.Now().Add(time.Hour * time.Duration(1)).Unix()
-	claims["iat"] = time.Now().Unix()
-	token.Claims = claims
-
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintln(w, "Error extracting the key")
-		fatal(err)
+	user, err := lib.Authenticate(email, password)
+	if err != nil || user.Id < 1 {
+		flash.Warning(err.Error())
+		flash.Store(&c.Controller)
+		return
 	}
 
-	tokenString, err := token.SignedString(signKey)
+	flash.Success("Success logged in")
+	flash.Store(&c.Controller)
 
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintln(w, "Error while signing the token")
-		fatal(err)
-	}
-
-	response := Token{tokenString}
-	JsonResponse(response, w)
-*/
-	c.ServeJSON()
+	c.SetLogin(user)
 }
 
