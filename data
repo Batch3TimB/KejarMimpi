@@ -35,7 +35,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: articles; Type: TABLE; Schema: public; Owner: fany
+-- Name: articles; Type: TABLE; Schema: public;
 --
 
 CREATE TABLE articles (
@@ -49,10 +49,10 @@ CREATE TABLE articles (
 );
 
 
-ALTER TABLE articles OWNER TO fany;
+ALTER TABLE articles;
 
 --
--- Name: articles_id_category_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: articles_id_category_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE articles_id_category_seq
@@ -63,17 +63,17 @@ CREATE SEQUENCE articles_id_category_seq
     CACHE 1;
 
 
-ALTER TABLE articles_id_category_seq OWNER TO fany;
+ALTER TABLE articles_id_category_seq;
 
 --
--- Name: articles_id_category_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: articles_id_category_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE articles_id_category_seq OWNED BY articles.id_category;
 
 
 --
--- Name: articles_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: articles_id_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE articles_id_seq
@@ -84,17 +84,17 @@ CREATE SEQUENCE articles_id_seq
     CACHE 1;
 
 
-ALTER TABLE articles_id_seq OWNER TO fany;
+ALTER TABLE articles_id_seq;
 
 --
--- Name: articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE articles_id_seq OWNED BY articles.id;
 
 
 --
--- Name: articles_id_user_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: articles_id_user_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE articles_id_user_seq
@@ -105,17 +105,17 @@ CREATE SEQUENCE articles_id_user_seq
     CACHE 1;
 
 
-ALTER TABLE articles_id_user_seq OWNER TO fany;
+ALTER TABLE articles_id_user_seq;
 
 --
--- Name: articles_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: articles_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE articles_id_user_seq OWNED BY articles.id_user;
 
 
 --
--- Name: category; Type: TABLE; Schema: public; Owner: fany
+-- Name: category; Type: TABLE; Schema: public;
 --
 
 CREATE TABLE category (
@@ -126,10 +126,10 @@ CREATE TABLE category (
 );
 
 
-ALTER TABLE category OWNER TO fany;
+ALTER TABLE category;
 
 --
--- Name: category_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: category_id_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE category_id_seq
@@ -140,17 +140,17 @@ CREATE SEQUENCE category_id_seq
     CACHE 1;
 
 
-ALTER TABLE category_id_seq OWNER TO fany;
+ALTER TABLE category_id_seq;
 
 --
--- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: category_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE category_id_seq OWNED BY category.id;
 
 
 --
--- Name: comments; Type: TABLE; Schema: public; Owner: fany
+-- Name: comments; Type: TABLE; Schema: public;
 --
 
 CREATE TABLE comments (
@@ -163,10 +163,10 @@ CREATE TABLE comments (
 );
 
 
-ALTER TABLE comments OWNER TO fany;
+ALTER TABLE comments;
 
 --
--- Name: comments_id_article_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: comments_id_article_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE comments_id_article_seq
@@ -177,17 +177,17 @@ CREATE SEQUENCE comments_id_article_seq
     CACHE 1;
 
 
-ALTER TABLE comments_id_article_seq OWNER TO fany;
+ALTER TABLE comments_id_article_seq;
 
 --
--- Name: comments_id_article_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: comments_id_article_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE comments_id_article_seq OWNED BY comments.id_article;
 
 
 --
--- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: comments_id_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE comments_id_seq
@@ -198,17 +198,17 @@ CREATE SEQUENCE comments_id_seq
     CACHE 1;
 
 
-ALTER TABLE comments_id_seq OWNER TO fany;
+ALTER TABLE comments_id_seq;
 
 --
--- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
 
 
 --
--- Name: comments_id_user_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: comments_id_user_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE comments_id_user_seq
@@ -219,17 +219,17 @@ CREATE SEQUENCE comments_id_user_seq
     CACHE 1;
 
 
-ALTER TABLE comments_id_user_seq OWNER TO fany;
+ALTER TABLE comments_id_user_seq;
 
 --
--- Name: comments_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: comments_id_user_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE comments_id_user_seq OWNED BY comments.id_user;
 
 
 --
--- Name: goose_db_version; Type: TABLE; Schema: public; Owner: fany
+-- Name: goose_db_version; Type: TABLE; Schema: public;
 --
 
 CREATE TABLE goose_db_version (
@@ -240,10 +240,10 @@ CREATE TABLE goose_db_version (
 );
 
 
-ALTER TABLE goose_db_version OWNER TO fany;
+ALTER TABLE goose_db_version;
 
 --
--- Name: goose_db_version_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: goose_db_version_id_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE goose_db_version_id_seq
@@ -254,17 +254,17 @@ CREATE SEQUENCE goose_db_version_id_seq
     CACHE 1;
 
 
-ALTER TABLE goose_db_version_id_seq OWNER TO fany;
+ALTER TABLE goose_db_version_id_seq;
 
 --
--- Name: goose_db_version_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: goose_db_version_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE goose_db_version_id_seq OWNED BY goose_db_version.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: fany
+-- Name: users; Type: TABLE; Schema: public;
 --
 
 CREATE TABLE users (
@@ -284,10 +284,10 @@ CREATE TABLE users (
 );
 
 
-ALTER TABLE users OWNER TO fany;
+ALTER TABLE users;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: fany
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public;
 --
 
 CREATE SEQUENCE users_id_seq
@@ -298,80 +298,80 @@ CREATE SEQUENCE users_id_seq
     CACHE 1;
 
 
-ALTER TABLE users_id_seq OWNER TO fany;
+ALTER TABLE users_id_seq;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: fany
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public;
 --
 
 ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: articles id; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: articles id; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY articles ALTER COLUMN id SET DEFAULT nextval('articles_id_seq'::regclass);
 
 
 --
--- Name: articles id_user; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: articles id_user; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY articles ALTER COLUMN id_user SET DEFAULT nextval('articles_id_user_seq'::regclass);
 
 
 --
--- Name: articles id_category; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: articles id_category; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY articles ALTER COLUMN id_category SET DEFAULT nextval('articles_id_category_seq'::regclass);
 
 
 --
--- Name: category id; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: category id; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY category ALTER COLUMN id SET DEFAULT nextval('category_id_seq'::regclass);
 
 
 --
--- Name: comments id; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: comments id; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
 
 
 --
--- Name: comments id_user; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: comments id_user; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY comments ALTER COLUMN id_user SET DEFAULT nextval('comments_id_user_seq'::regclass);
 
 
 --
--- Name: comments id_article; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: comments id_article; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY comments ALTER COLUMN id_article SET DEFAULT nextval('comments_id_article_seq'::regclass);
 
 
 --
--- Name: goose_db_version id; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: goose_db_version id; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY goose_db_version ALTER COLUMN id SET DEFAULT nextval('goose_db_version_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: fany
+-- Name: users id; Type: DEFAULT; Schema: public;
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- Data for Name: articles; Type: TABLE DATA; Schema: public; Owner: fany
+-- Data for Name: articles; Type: TABLE DATA; Schema: public;
 --
 
 COPY articles (id, title, content, id_user, id_category, created_at, updated_at) FROM stdin;
@@ -380,28 +380,28 @@ COPY articles (id, title, content, id_user, id_category, created_at, updated_at)
 
 
 --
--- Name: articles_id_category_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: articles_id_category_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('articles_id_category_seq', 1, false);
 
 
 --
--- Name: articles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: articles_id_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('articles_id_seq', 1, true);
 
 
 --
--- Name: articles_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: articles_id_user_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('articles_id_user_seq', 1, false);
 
 
 --
--- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: fany
+-- Data for Name: category; Type: TABLE DATA; Schema: public;
 --
 
 COPY category (id, category, created_at, updated_at) FROM stdin;
@@ -410,14 +410,14 @@ COPY category (id, category, created_at, updated_at) FROM stdin;
 
 
 --
--- Name: category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: category_id_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('category_id_seq', 1, true);
 
 
 --
--- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: fany
+-- Data for Name: comments; Type: TABLE DATA; Schema: public;
 --
 
 COPY comments (id, comments, id_user, id_article, created_at, updated_at) FROM stdin;
@@ -427,28 +427,28 @@ COPY comments (id, comments, id_user, id_article, created_at, updated_at) FROM s
 
 
 --
--- Name: comments_id_article_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: comments_id_article_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('comments_id_article_seq', 1, false);
 
 
 --
--- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('comments_id_seq', 2, true);
 
 
 --
--- Name: comments_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: comments_id_user_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('comments_id_user_seq', 1, false);
 
 
 --
--- Data for Name: goose_db_version; Type: TABLE DATA; Schema: public; Owner: fany
+-- Data for Name: goose_db_version; Type: TABLE DATA; Schema: public;
 --
 
 COPY goose_db_version (id, version_id, is_applied, tstamp) FROM stdin;
@@ -465,14 +465,14 @@ COPY goose_db_version (id, version_id, is_applied, tstamp) FROM stdin;
 
 
 --
--- Name: goose_db_version_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: goose_db_version_id_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('goose_db_version_id_seq', 9, true);
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: fany
+-- Data for Name: users; Type: TABLE DATA; Schema: public;
 --
 
 COPY users (id, name, profession, dream, hobby, website_url, phone, avatar_url, email, password, token, created_at, updated_at) FROM stdin;
@@ -485,14 +485,14 @@ COPY users (id, name, profession, dream, hobby, website_url, phone, avatar_url, 
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: fany
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public;
 --
 
 SELECT pg_catalog.setval('users_id_seq', 5, true);
 
 
 --
--- Name: articles articles_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+-- Name: articles articles_pkey; Type: CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY articles
@@ -500,7 +500,7 @@ ALTER TABLE ONLY articles
 
 
 --
--- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+-- Name: category category_pkey; Type: CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY category
@@ -508,7 +508,7 @@ ALTER TABLE ONLY category
 
 
 --
--- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+-- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY comments
@@ -516,7 +516,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: goose_db_version goose_db_version_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
+-- Name: goose_db_version goose_db_version_pkey; Type: CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY goose_db_version
@@ -524,15 +524,14 @@ ALTER TABLE ONLY goose_db_version
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: fany
---
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public;
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
 --
--- Name: articles articles_id_category_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+-- Name: articles articles_id_category_fkey; Type: FK CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY articles
@@ -540,7 +539,7 @@ ALTER TABLE ONLY articles
 
 
 --
--- Name: articles articles_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+-- Name: articles articles_id_user_fkey; Type: FK CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY articles
@@ -548,7 +547,7 @@ ALTER TABLE ONLY articles
 
 
 --
--- Name: comments comments_id_article_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+-- Name: comments comments_id_article_fkey; Type: FK CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY comments
@@ -556,7 +555,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: comments comments_id_user_fkey; Type: FK CONSTRAINT; Schema: public; Owner: fany
+-- Name: comments comments_id_user_fkey; Type: FK CONSTRAINT; Schema: public;
 --
 
 ALTER TABLE ONLY comments
