@@ -8,15 +8,12 @@ Provided API to Kejar Mimpi App
 * Beego Framework Golang
 * Postgresql
 
-### Installing
+### Running in local
+* Clone this repo
+* Replace the database connection code with your database connection in the `main.go` file
+`orm.RegisterDataBase("default", "postgres", "user=postgres password=yourpassword host=127.0.0.1 dbname=yourdb")`
 
-run this command:
-
-```
-glide install or glide update
-```
-then
-
+run
 ```
 bee run -downdoc=true -gendoc=true
 ```
@@ -24,7 +21,7 @@ open your browser
 ```
 http://127.0.0.1:8080/swagger/
 ```
-testing local ==> video
+testing local ==> documentation video
 ```
 https://www.youtube.com/watch?v=TCcldd7AnzY
 ```
