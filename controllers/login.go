@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"fmt"
+	"encoding/json"
 
 	"github.com/astaxie/beego"
 	"github.com/kejarmimpi/lib"
@@ -17,6 +18,11 @@ func (c *LoginController) URLMapping() {
 	c.Mapping("Login", c.Login)
 }
 
+type User struct {
+    Email string
+    Password string
+}
+
 
 // Post ...
 // @Title Post
@@ -25,25 +31,36 @@ func (c *LoginController) URLMapping() {
 // @Failure 403 body is empty
 // @router / [post]
 func (c *LoginController) Login() {
-	flash := beego.NewFlash()
-	email := c.GetString("email")
-
-	c.Data["json"] =  c.Ctx.Input.RequestBody
+	req := c.Ctx.Request     //in beego this.Ctx.Request points to the Http#Request
+	p := make([]byte, req.ContentLength)    
+	_, err := c.Ctx.Request.Body.Read(p)
 	
-	fmt.Printf("ini dibawah")
+	if err == nil {
+	    var u User
+	    err1 := json.Unmarshal(p, &u)
+	    if err1 == nil {
+	    	flash := beego.NewFlash()
+	    	email := u.Email
+	    	password := u.Password
 
-	password := c.GetString("password")
+	       user, err := lib.Authenticate(email, password)
+			if err != nil || user.Id < 1 {
+				flash.Warning(err.Error())
+				flash.Store(&c.Controller)
+				return
+			}
+			
+			flash.Success("Success logged in")
+			flash.Store(&c.Controller)
 
-	user, err := lib.Authenticate(email, password)
-	if err != nil || user.Id < 1 {
-		flash.Warning(err.Error())
-		flash.Store(&c.Controller)
-		return
+
+			c.Data["json"] = user
+	    } else {
+	        fmt.Println("Unable to unmarshall the JSON request", err1);
+
+	    }
 	}
 
-	flash.Success("Success logged in")
-	flash.Store(&c.Controller)
-
-	c.SetLogin(user)
+	c.ServeJSON()
 }
 

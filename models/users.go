@@ -13,7 +13,7 @@ import (
 
 type Users struct {
 	Id         int    `orm:"column(id)pk;auto"`
-	Name       string `orm:"column(name);null;size(5)"`
+	Name       string `orm:"column(name);null"`
 	Profession string `orm:"column(profession);null"`
 	Hobby      string `orm:"column(hobby);null"`
 	WebsiteUrl string `orm:"column(website_url);null"`
@@ -26,7 +26,6 @@ type Users struct {
 	CreatedAt time.Time `orm:"auto_now_add;type(datetime)"`
 	UpdatedAt time.Time `orm:"auto_now;type(datetime)"`
 }
-
 
 func (t *Users) TableName() string {
 	return "users"
@@ -43,16 +42,6 @@ func AddUsers(m *Users) (id int64, err error) {
 		msg string
 	)
 	o := orm.NewOrm()
-	id, err = o.Insert(m)
-	return
-}
-
-
-// plain password from input user change into hashedpassword then save to db
-func CreatePasswordHash(plainPassword string) (hashedPassword string) {
-	passwordHashInBytes, err := bcrypt.GenerateFromPassword([]byte(plainPassword), 10)
-	if err != nil {
-		panic(err)
 	qs := o.QueryTable("users")
 	if qs.Filter("email", m.Email).Exist() {
 		msg = "email was already regsitered"
@@ -83,17 +72,6 @@ func GetUsersById(id int) (v *Users, err error) {
 		return v, nil
 	}
 	return nil, err
-}
-
-
-// plain password from input user change into hashedpassword then save to db
-func CreatePasswordHash(plainPassword string) (hashedPassword string) {
-	passwordHashInBytes, err := bcrypt.GenerateFromPassword([]byte(plainPassword), 10)
-	if err != nil {
-		panic(err)
-	}
-	hashedPassword = string(passwordHashInBytes)
-	return
 }
 
 // GetAllUsers retrieves all Users matches certain condition. Returns empty list if

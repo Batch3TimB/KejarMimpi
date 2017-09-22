@@ -2,7 +2,7 @@ package main
 
 import (
 
-	"os"
+	//"os"
 
 	_ "github.com/kejarmimpi/routers"
 
@@ -12,7 +12,9 @@ import (
 )
 
 func init() {
-	orm.RegisterDataBase("default", "postgres", os.Getenv("DATABASE_URL"))
+	//orm.RegisterDataBase("default", "postgres", os.Getenv("DATABASE_URL"))
+	orm.RegisterDataBase("default", "postgres", "user=fany host=127.0.0.1 port=5432 sslmode=disable dbname=kejarmimpi")
+
 }
 
 func main() {

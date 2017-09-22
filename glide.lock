@@ -1,5 +1,5 @@
-hash: 04edb39b50a9d59ca2e8c42305f4c7a7ec546377304385474e0e968e77cb7c6e
-updated: 2017-09-20T16:33:00.051024315+07:00
+hash: 63a8107d828a551365ba0c9bb8f977e68f37766b7536aa9a256f9acca14b7e99
+updated: 2017-09-22T11:26:20.651718375+07:00
 imports:
 - name: github.com/astaxie/beego
   version: d96289a81bf67728cff7a19b067aaecc65a62ec6
@@ -9,17 +9,19 @@ imports:
   - context/param
   - grace
   - logs
+  - migration
   - orm
   - session
   - toolbox
   - utils
+- name: github.com/dgrijalva/jwt-go
+  version: a539ee1a749a2b895533f979515ac7e6e0f5b650
+- name: github.com/ikeikeikeike/gopkg
+  version: dba476424b0792297ae49a31d701e609fa711579
+  subpackages:
+  - convert
 - name: github.com/lib/pq
   version: e42267488fe361b9dc034be7a6bffef5b195bceb
   subpackages:
   - oid
-- name: golang.org/x/crypto
-  version: 7d9177d70076375b9a59c8fde23d52d9c4a7ecd5
-  subpackages:
-  - bcrypt
-  - blowfish
 testImports: []
