@@ -159,7 +159,7 @@ func (c *UsersController) Put() {
 	// TODO: add method to hashing the password
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateUsersById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = v
 		} else {
 			c.Data["json"] = err.Error()
 		}
