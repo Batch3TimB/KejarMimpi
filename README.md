@@ -19,6 +19,8 @@ Migration with Goose
 `orm.RegisterDataBase("default", "postgres", "user=postgres password=yourpassword host=127.0.0.1 dbname=yourdb")`
 
 run
+
+![Peek recording itself](https://github.com/Batch3TimB/kejarmimpi/blob/video/run%20local.gif)
 ```
 bee run -downdoc=true -gendoc=true
 ```
