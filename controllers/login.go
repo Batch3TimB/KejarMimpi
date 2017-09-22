@@ -49,9 +49,6 @@ func (c *LoginController) Login() {
 				flash.Store(&c.Controller)
 				return
 			}
-			
-			flash.Success("Success logged in")
-			flash.Store(&c.Controller)
 
 
 			c.Data["json"] = user
