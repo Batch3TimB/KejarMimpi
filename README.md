@@ -2,15 +2,25 @@
 
 Provided API to Kejar Mimpi App
 
-### Installing
+### Dependency
+* Go Language (Golang)
+* Setting GOPATH
+* [Beego](https://beego.me/docs/intro/) - The web frameworks used
+* [Glide](https://glide.sh/) - Dependency Management
 
-run this command:
+Migration with Goose 
 
-```
-glide install or glide update
-```
-then
+`https://bitbucket.org/liamstask/goose/`
 
+### Running in local
+* Clone this repo
+* Replace the database connection code with your database connection in the `main.go` file
+
+`orm.RegisterDataBase("default", "postgres", "user=postgres password=yourpassword host=127.0.0.1 dbname=yourdb")`
+
+run
+
+![Peek recording itself](https://github.com/Batch3TimB/kejarmimpi/blob/master/run%20local.gif)
 ```
 bee run -downdoc=true -gendoc=true
 ```
@@ -18,29 +28,9 @@ open your browser
 ```
 http://127.0.0.1:8080/swagger/
 ```
-without swagger 
-```
-bee run
-```
-open
- ```
- http://127.0.0.1:8080/v1/users
- ```
- ```
- http://127.0.0.1:8080/v1/articles
- ```
- ```
- http://127.0.0.1:8080/v1/category
- ```
- ```
- http://127.0.0.1:8080/v1/comments
- ```
+## testing local
 
-
-## Built With
-
-* [Beego](https://beego.me/docs/intro/) - The web frameworks used
-* [Glide](https://glide.sh/) - Dependency Management
+* video documentation in youtube (https://www.youtube.com/watch?v=yXFrLz9gV5A&feature=youtu.be)
 
 
 ## Authors
