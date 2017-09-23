@@ -13,6 +13,7 @@ import (
 
 func init() {
 	orm.RegisterDataBase("default", "postgres", os.Getenv("DATABASE_URL"))
+	//orm.RegisterDataBase("default", "postgres", "user=postgress password=password host=127.0.0.1 port=5432 dbname=mylocaldb")
 
 }
 
