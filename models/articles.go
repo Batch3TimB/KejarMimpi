@@ -14,6 +14,7 @@ type Articles struct {
 	Id        int       `orm:"column(id)pk;auto"`
 	Title     string    `orm:"column(title);null"`
 	Content   string    `orm:"column(content);null"`
+	CoverUrl   string    `orm:"column(cover_url);null"`
 	CreatedAt time.Time `orm:"auto_now_add;type(datetime)"`
 	UpdatedAt time.Time `orm:"auto_now;type(datetime)"`
 	Author    *Users    `orm:"column(id_user);rel(fk)"`
