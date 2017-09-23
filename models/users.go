@@ -167,7 +167,9 @@ func UpdateUsersById(m *Users) (err error)  {
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		m.Password = convert.StrTo(m.Password).Md5()
+		if m.Password != v.Password {
+			m.Password = convert.StrTo(m.Password).Md5()		
+		}
 		if num, err = o.Update(m); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
